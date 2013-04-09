@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#flex1").flexigrid({
+            url: 'Home/GetData',
+            dataType: 'json',
+            colModel: [
+                    { display: 'Id', name: 'Id', width: 40, sortable: true, align: 'left' },
+                    { display: 'First Name', name: 'FirstName', width: 150, sortable: true, align: 'left' },
+                    { display: 'Surname', name: 'SurName', width: 150, sortable: true, align: 'left' },
+                    { display: 'Email', name: 'Email', width: 250, sortable: true, align: 'left' }
+            ],
+            buttons: [
+                    { name: 'Edit', bclass: 'edit', onpress: doCommand },
+                    { name: 'Delete', bclass: 'delete', onpress: doCommand },
+                    { separator: true }
+            ],
+            searchitems: [
+                    { display: 'First Name', name: 'first_name' },
+                    { display: 'Surname', name: 'surname', isdefault: true },
+                    { display: 'Position', name: 'position' }
+            ],
+            sortname: "id",
+            sortorder: "asc",
+            usepager: true,
+            title: "Staff",
+            useRp: true,
+            rp: 10,
+            showTableToggleBtn: true,
+            resizable: true,
+            width: 500,
+            height: 270,
+            singleSelect: true
+        });
+    });
+
+    function doCommand() {
+    }
+</script>
+
+<h2>Home</h2>
+<div id="flex1" style="width:500px"></div>
